@@ -18,7 +18,25 @@
       {{- partial "translation_list.html" . -}}
       {{- partial "edit_post.html" . -}}
       {{- partial "post_canonical.html" . -}}
+
+      {{- if (.Param "themes") }}
+      <div class="themes">
+        <span>·&nbsp;&nbsp;</span>
+        {{- range (.GetTerms "themes") }}
+          <a href="{{ .Permalink }}" title="标签">
+            {{ .LinkTitle }}
+          </a>
+        {{- end }}
+      </div>
+      {{- end }}
     </div>
+
+    {{- if .Params.tags }}
+    <ul class="post-tags">
+      {{- range ($.GetTerms "tags") }}
+      <li><a href="{{ .Permalink }}">{{ .LinkTitle }}</a></li>
+      {{- end }}
+    </ul>
     {{- end }}
   </header>
   {{- $isHidden := .Params.cover.hidden | default .Site.Params.cover.hiddenInSingle | default .Site.Params.cover.hidden }}
@@ -36,12 +54,6 @@
   {{- end }}
 
   <footer class="post-footer">
-    {{- if .Params.tags }}
-    <ul class="post-tags">
-      {{- range ($.GetTerms "tags") }}
-      <li><a href="{{ .Permalink }}">{{ .LinkTitle }}</a></li>
-      {{- end }}
-    </ul>
     {{- end }}
     {{- if (.Param "ShowPostNavLinks") }}
     {{- partial "post_nav_links.html" . }}

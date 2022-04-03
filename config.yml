@@ -25,8 +25,8 @@ languages:
                 - name: 搜索
                   url: search/
                   weight: 1
-                - name: 分类
-                  url: categories
+                - name: 主题
+                  url: themes
                   weight: 2
                 - name: 标签
                   url: tags
@@ -45,11 +45,11 @@ params:
     description: ""
     author: yesccx
 
-    defaultTheme: auto
+    defaultTheme: dark
     # disableThemeToggle: true
     ShowShareButtons: false
     ShowReadingTime: false
-    ShowWordCount: true
+    ShowWordCount: false
     showAuthor: false
     disableSpecial1stPost: true
     displayFullLangName: false
@@ -128,7 +128,7 @@ params:
     #     keys: ["title", "permalink", "summary", "content"]
 
 taxonomies:
-    category: categories
+    themes: themes
     tag: tags
 
 markup:
