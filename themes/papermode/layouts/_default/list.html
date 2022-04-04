@@ -51,7 +51,6 @@
 <article class="{{ $class }}">
   {{- $isHidden := (.Site.Params.cover.hidden | default .Site.Params.cover.hiddenInList) }}
   {{- partial "cover.html" (dict "cxt" . "IsHome" true "isHidden" $isHidden) }}
-  <a href="{{ .Permalink }}">
     <header class="entry-header">
         <h2>
         {{- .Title }}
@@ -62,13 +61,10 @@
     <section class="entry-content">
         <p>{{ .Summary | plainify | htmlUnescape }}{{ if .Truncated }}...{{ end }}</p>
     </section>
-    </a>
   {{- end }}
   {{- if not (.Param "hideMeta") }}
   <footer class="entry-footer">
-    <a href="{{ .Permalink }}" style="color:#6c6c6c;">
-        {{- partial "post_meta.html" . -}}
-    </a>
+    {{- partial "post_meta.html" . -}}
     {{- if (.Param "themes") }}
     <span class="themes">
       <span>·&nbsp;&nbsp;</span>
@@ -81,6 +77,7 @@
     {{- end }}
   </footer>
   {{- end }}
+  <a class="entry-link" aria-label="post link to {{ .Title | plainify }}" href="{{ .Permalink }}"></a>
 </article>
 {{- end }}
 
