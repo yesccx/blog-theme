@@ -67,7 +67,7 @@
     {{- partial "post_meta.html" . -}}
     {{- if (.Param "themes") }}
     <span class="themes">
-      <span>·&nbsp;&nbsp;</span>
+      <span>&nbsp;&nbsp;·&nbsp;&nbsp;</span>
       {{- range (.GetTerms "themes") }}
         <a href="{{ .Permalink }}" title="主题">
           {{ .LinkTitle }}
